@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var greetLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
 
@@ -28,9 +28,14 @@ class ViewController: UIViewController {
         if (nameString.isEmpty) {
             nameString = "World"
         }
+        self.nameField.text = ""
         self.greetLabel.text = "Hello, " + nameString
-        nameField.resignFirstResponder()
     }
-
+    
+    func textFieldShouldReturn(nameField: UITextField!) -> Bool {
+        changeGreeting(nameField)
+        nameField.resignFirstResponder()
+        return true
+    }
 }
 
