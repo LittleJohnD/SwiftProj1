@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var greetLabel: UILabel!
+    @IBOutlet weak var nameField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func changeGreeting(sender: AnyObject) {
+        var nameString = String()
+        nameString = self.nameField.text
+        if (nameString.isEmpty) {
+            nameString = "World"
+        }
+        self.greetLabel.text = "Hello, " + nameString
+        nameField.resignFirstResponder()
+    }
 
 }
 
