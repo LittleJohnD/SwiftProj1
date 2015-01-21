@@ -23,8 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func changeGreeting(sender: AnyObject) {
-        var nameString = String()
-        nameString = self.nameField.text
+        var nameString = self.nameField.text
         if (nameString.isEmpty) {
             nameString = "World"
         }
